@@ -1,6 +1,8 @@
 local Renderer = require "tools/renderer"
 local GameLoop = require "tools/gameLoop"
-require 'tools/vector2'
+local Vector2 = require 'tools/vector2'
+
+local rect = require 'objects/rect'
 
 renderer = Renderer:create()
 gameLoop = GameLoop:create()
@@ -9,7 +11,12 @@ g_Width    = love.graphics.getWidth()
 g_Height   = love.graphics.getHeight()
 g_GameTime = 0
 
+local obj
+
+
 function love.load()
+
+  obj = rect:new(32, 32, 64, 64)
 
 --   TEST RENDERER
 -- require 'testRednerer'
@@ -22,9 +29,9 @@ function love.load()
 
 
 --   TEST GAMELOOP
-require 'testGameLoop'
-local obj = createBox()
-obj:load()
+-- require 'testGameLoop'
+-- local obj = createBox()
+-- obj:load()
 
 
 end
@@ -40,6 +47,7 @@ end
 
 function love.draw()
   renderer:draw()
+  love.graphics.rectangle('line', obj.pos.x, obj.pos.y, obj.size.x, obj.size.y )
 end
 
 
