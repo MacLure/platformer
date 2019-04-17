@@ -1,5 +1,6 @@
 local Renderer = require "tools/renderer"
 local GameLoop = require "tools/gameLoop"
+require 'tools/vector2'
 
 renderer = Renderer:create()
 gameLoop = GameLoop:create()
@@ -18,6 +19,7 @@ function love.load()
 -- r2 = createBox(96, 96)
 -- r1:load()
 -- r2:load()
+
 
 --   TEST GAMELOOP
 require 'testGameLoop'
